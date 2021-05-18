@@ -23,10 +23,8 @@ button {
 textarea {
   background: transparent;
   width: 100%;
-  border-bottom: .25em solid;
-  border-right: none;
-  border-left: none;
-  border-top: none;
+  border: none;
+  border-bottom: .20em solid #545149;
   resize: none;
 }
 
