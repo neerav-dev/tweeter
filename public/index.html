@@ -24,10 +24,13 @@
   <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
 
   <!-- Navigation CSS -->
-  <link rel="stylesheet" href="./styles/nav.css" type="text/css">
+  <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
 
   <!-- Header CSS -->
-  <link rel="stylesheet" href="./styles/header.css" type="text/css">
+  <link rel="stylesheet" href="./styles/header.css" type="text/css" />
+
+  <!-- New Tweet CSS -->
+  <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -60,9 +63,17 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam inventore natus optio omnis atque officiis! Numquam facere officiis tenetur sint natus, laborum dolore. Quas veritatis nemo maxime iste necessitatibus temporibus?</p>
-    <p>Deserunt laudantium, doloribus nisi sint rerum, neque expedita hic labore, perspiciatis soluta animi. Voluptate non vitae ipsam nulla dolore id, quasi dicta officiis ipsa, deserunt neque laudantium libero iste beatae.</p>
-    <p>Rem deserunt architecto pariatur harum porro corrupti eum. Perferendis, nostrum, rem ducimus quod voluptates laborum delectus id vero reprehenderit beatae, iste incidunt quia ullam cum modi exercitationem magnam ipsum cupiditate.</p>
+    <section class="new-tweet">
+      <!-- <h2>Compose Tweet</h2> -->
+      <form action="/tweets/" method="POST" >
+        <label for="tweet-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-text"></textarea>
+        <div class="action">
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>
   </main>
 </body>
 

@@ -7,15 +7,15 @@ header {
   width: 100%;
   background-color: orange;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
-  margin: 120px 0px 0px 0px;
+  margin: 100px 0px 0px 0px;
 }
 
 img {
-  margin: 0px;
-  padding: 0px 30px;
+  margin: 0em;
+  padding: 0em 1em;
 }
 
 h2 {
-  margin: 0px;
-  padding: 0px 60px;
+  margin: 0em;
+  padding: 0em 1em;
 }
