@@ -37,32 +37,45 @@ const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
+  $('#tweets-container').empty();
   tweets.forEach(tweet => {
     const $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   });
 };
 
 $(document).ready(function() {
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.get("/tweets", (data) => {
-      console.log(data);
       renderTweets(data);
-    })
-  }
+    });
+  };
 
   loadTweets();
 
   const form = $("main.container form");
 
-  const text = $("#tweet-text").val();
-
   form.on("submit", (event) => {
     event.preventDefault();
+    
+    const text = $("#tweet-text").val();
+    console.log("Tweet text: ",text);
+    if (text === '') {
+      alert('Tweet cannot be empty');
+      return;
+    } else {
+      if (text.length > 140) {
+        alert('Tweet cannot be more then 140 characters');
+        return;
+      }
+    }
+    
     $.post("/tweets", $("#tweet-text").serialize())
-      .done(function (data) {
-        console.log(data);
+      .done(function(data) {
+        loadTweets();
       });
-  });
+      $("#tweet-text").val("");
+    });
+    
 });
