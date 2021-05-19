@@ -30,9 +30,9 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
 
-const createTweetElement = function (tweetData) {
+const createTweetElement = function(tweetData) {
   const timeAgo = timeago.format(tweetData.created_at);
   const tweet = `<article class="tweet">
                       <header>
@@ -57,9 +57,9 @@ const createTweetElement = function (tweetData) {
                           <i class="fas fa-heart"></i>
                         </div>
                       </footer>
-                    </article>`
+                    </article>`;
   return tweet;
-}
+};
 
 const renderTweets = function(tweets) {
   // loops through tweets
@@ -69,8 +69,21 @@ const renderTweets = function(tweets) {
     const $tweet = createTweetElement(tweet);
     $('#tweets-container').append($tweet);
   });
-}
+};
 
 $(document).ready(function() {
   renderTweets(data);
+
+  const form = $("main.container form");
+
+  const text = $("#tweet-text").val();
+
+  form.on("submit", (event) => {
+    event.preventDefault();
+    //console.log($("#tweet-text").serialize());
+    $.post("/tweets", $("#tweet-text").serialize())
+      .done(function (data) {
+        console.log(data);
+      });
+  });
 });
