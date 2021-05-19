@@ -43,6 +43,7 @@ article.tweet footer {
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem;
+  font-size: 0.75em;
 } 
 
 article.tweet footer i {

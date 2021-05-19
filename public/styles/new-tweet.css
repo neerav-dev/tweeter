@@ -33,3 +33,14 @@ textarea {
   font-size: 1.2em;
   font-weight: 600;
 }
+
+.caution {
+  border: .12em solid red;
+  padding: 0.2rem .8rem;
+  display: none;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: red;
+  font-size: 0.8em;
+}

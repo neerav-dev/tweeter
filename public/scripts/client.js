@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -65,22 +65,29 @@ $(document).ready(function() {
   form.on("submit", (event) => {
     event.preventDefault();
     
+    $('.caution').empty();
     const text = $("#tweet-text").val();
     if (text === '') {
-      alert('Tweet cannot be empty');
+      $('.caution').empty();
+      $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be empty 🛑');
+      $('.caution').slideDown("fast","linear");
       return;
     } else {
       if (text.length > 140) {
-        alert('Tweet cannot be more then 140 characters');
+        $('.caution').empty();
+        $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be more then📏 140 characters 🛑');
+        $('.caution').slideDown("fast","linear");
         return;
       }
     }
-    
+    $('.caution').empty();
+    $('.caution').slideUp("fast","linear");
+
     $.post("/tweets", $("#tweet-text").serialize())
-      .done(function(data) {
+      .done(function() {
         loadTweets();
       });
-      $("#tweet-text").val("");
-    });
+    $("#tweet-text").val("");
+  });
     
 });
