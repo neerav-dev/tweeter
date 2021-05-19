@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // --- our code goes here ---
-  console.log("Hello");
+  //console.log("Hello");
 
   const updateCounter = function(element, counter) {
     const counterElement = $(element).parent().children("div.action").children("output.counter");
