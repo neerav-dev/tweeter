@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweetData) {
   const timeAgo = timeago.format(tweetData.created_at);
   const tweet = `<article class="tweet">
@@ -17,7 +23,7 @@ const createTweetElement = function(tweetData) {
                         </div>
                       </header>
                       <div>
-                        <textarea name="" id="">${tweetData.content.text}</textarea>
+                        <textarea name="" id="">${escape(tweetData.content.text)}</textarea>
                       </div>
                       <footer>
                         <div>
@@ -60,7 +66,6 @@ $(document).ready(function() {
     event.preventDefault();
     
     const text = $("#tweet-text").val();
-    console.log("Tweet text: ",text);
     if (text === '') {
       alert('Tweet cannot be empty');
       return;
