@@ -23,7 +23,9 @@ const createTweetElement = function(tweetData) {
                         </div>
                       </header>
                       <div>
-                        <textarea name="" id="">${escape(tweetData.content.text)}</textarea>
+                        <textarea readonly>${escape(
+    tweetData.content.text
+  )}</textarea>
                       </div>
                       <footer>
                         <div>
@@ -43,15 +45,14 @@ const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  $('.tweets-container').empty();
-  tweets.forEach(tweet => {
+  $(".tweets-container").empty();
+  tweets.forEach((tweet) => {
     const $tweet = createTweetElement(tweet);
-    $('.tweets-container').prepend($tweet);
+    $(".tweets-container").prepend($tweet);
   });
 };
 
 $(document).ready(function() {
-
   const loadTweets = function() {
     $.get("/tweets", (data) => {
       renderTweets(data);
@@ -64,36 +65,54 @@ $(document).ready(function() {
 
   form.on("submit", (event) => {
     event.preventDefault();
-    
-    $('.caution').empty();
+
+    $(".caution").empty();
     const text = $("#tweet-text").val();
-    if (text.trim() === '') {
-      $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be empty 🛑');
-      $('.caution').slideDown("fast","linear");
+    if (text.trim() === "") {
+      $(".caution").append("🛑 Tweet 💬 cannot 🙅🏻‍♂️ be empty 🛑");
+      $(".caution").slideDown("fast", "linear");
       return;
     } else {
       if (text.length > 140) {
-        $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be more then📏 140 characters 🛑');
-        $('.caution').slideDown("fast","linear");
+        $(".caution").append(
+          "🛑 Tweet 💬 cannot 🙅🏻‍♂️ be more then📏 140 characters 🛑"
+        );
+        $(".caution").slideDown("fast", "linear");
         return;
       }
     }
-    $('.caution').empty();
-    $('.caution').slideUp("fast","linear");
+    $(".caution").empty();
+    $(".caution").slideUp("fast", "linear");
 
-    $.post("/tweets", $("#tweet-text").serialize())
-      .done(function() {
-        loadTweets();
-      });
+    $.post("/tweets", $("#tweet-text").serialize()).done(function() {
+      loadTweets();
+    });
     $("#tweet-text").val("");
   });
 
-  $('.showForm').on("click", (event) => {
-    if ($('.new-tweet').prop('clientHeight') > 0) {
-      $('.new-tweet').slideUp("fast","linear");
+  //Hide new tweet form
+  $(".showForm").on("click", (event) => {
+    if ($(".new-tweet").prop("clientHeight") > 0) {
+      $(".new-tweet").slideUp("fast", "linear");
     } else {
-      $('.new-tweet').slideDown("fast","linear");
+      $(".new-tweet").slideDown("fast", "linear");
       $("#tweet-text").focus();
     }
+  });
+
+  //Scroll top button show/hide
+  $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+      $(".float").css("display", "block");
+      // counterElement.css("color","#f11");
+    } else {
+      $(".float").css("display", "none");
+    }
+  });
+
+  //Scroll top
+  $(".float").on("click", (event) => {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
   });
 });

@@ -7,28 +7,27 @@
 .action {
   display: flex;
   flex-direction: row;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   justify-content: space-between;
   align-items: center;
-  margin: .1em 0em 0em;
+  margin: 0.1em 0em 0em;
   padding: 0.2rem;
 }
 
 button {
   background-color: #4152a1;
   color: white;
-  padding: 0.2rem .8rem;
+  padding: 0.2rem 0.8rem;
 }
 
 .new-tweet form textarea {
   background: transparent;
   width: 100%;
   border: none;
-  border-bottom: .20em solid #545149;
+  border-bottom: 0.2em solid #545149;
   resize: none;
   outline: none;
 }
-
 
 .new-tweet label {
   /* position: absolute; */
@@ -37,8 +36,8 @@ button {
 }
 
 .caution {
-  border: .12em solid red;
-  padding: 0.2rem .8rem;
+  border: 0.12em solid red;
+  padding: 0.2rem 0.8rem;
   display: none;
   text-align: center;
   font-size: 1.2em;

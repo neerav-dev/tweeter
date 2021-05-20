@@ -1,13 +1,13 @@
-body header {
+body > header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  height: 400px;
-  width: 100%;
+  justify-content: center;
   background-color: orange;
   color: white;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+  max-height: 400px;
+  min-width: 30vw;
   margin: 120px 0px 0px 0px;
 }
 

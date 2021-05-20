@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -16,12 +18,12 @@ html {
 
 body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-self: start;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /*
@@ -32,4 +34,50 @@ body {
   background-color: inherit;
   width: 90%;
   justify-content: center;
+  margin: 120px 0px 0px 0px;
+  padding: 2rem;
+}
+
+.float {
+  display: none;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  outline: none;
+  background-color: red;
+  border-radius: 50px;
+}
+
+.float:hover {
+  background-color: #555;
+}
+
+.my-float {
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  body {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-around;
+  }
+
+  body > header {
+    width: 100%;
+  }
+
+  body nav {
+    background-color: orange;
+    color: white;
+    background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+  }
+
+  .container {
+    margin: 0px;
+    padding: 0rem;
+  }
 }
