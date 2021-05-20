@@ -1,7 +1,7 @@
 .new-tweet {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0rem;
+  margin: 1.5em 0em;
 }
 
 .action {
@@ -10,7 +10,7 @@
   font-family: 'Bungee', cursive;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0rem;
+  margin: .1em 0em 0em;
   padding: 0.2rem;
 }
 
@@ -20,13 +20,15 @@ button {
   padding: 0.2rem .8rem;
 }
 
-textarea {
+.new-tweet form textarea {
   background: transparent;
   width: 100%;
   border: none;
   border-bottom: .20em solid #545149;
   resize: none;
+  outline: none;
 }
+
 
 .new-tweet label {
   /* position: absolute; */

@@ -1,21 +1,24 @@
-header {
+body header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 400px;
   width: 100%;
   background-color: orange;
+  color: white;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
-  margin: 100px 0px 0px 0px;
+  margin: 120px 0px 0px 0px;
 }
 
 img {
+  /* border: 1px black solid; */
   margin: 0em;
   padding: 0em 1em;
 }
 
 h2 {
+  /* border: 1px black solid; */
   margin: 0em;
   padding: 0em 1em;
 }

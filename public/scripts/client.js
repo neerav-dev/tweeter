@@ -43,10 +43,10 @@ const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  $('#tweets-container').empty();
+  $('.tweets-container').empty();
   tweets.forEach(tweet => {
     const $tweet = createTweetElement(tweet);
-    $('#tweets-container').prepend($tweet);
+    $('.tweets-container').prepend($tweet);
   });
 };
 
@@ -67,14 +67,12 @@ $(document).ready(function() {
     
     $('.caution').empty();
     const text = $("#tweet-text").val();
-    if (text === '') {
-      $('.caution').empty();
+    if (text.trim() === '') {
       $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be empty 🛑');
       $('.caution').slideDown("fast","linear");
       return;
     } else {
       if (text.length > 140) {
-        $('.caution').empty();
         $('.caution').append('🛑 Tweet 💬 cannot 🙅🏻‍♂️ be more then📏 140 characters 🛑');
         $('.caution').slideDown("fast","linear");
         return;
@@ -89,5 +87,13 @@ $(document).ready(function() {
       });
     $("#tweet-text").val("");
   });
-    
+
+  $('.showForm').on("click", (event) => {
+    if ($('.new-tweet').prop('clientHeight') > 0) {
+      $('.new-tweet').slideUp("fast","linear");
+    } else {
+      $('.new-tweet').slideDown("fast","linear");
+      $("#tweet-text").focus();
+    }
+  });
 });

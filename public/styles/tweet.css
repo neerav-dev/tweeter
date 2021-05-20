@@ -1,13 +1,9 @@
-/* * {
-  border:2px solid salmon;
-  padding:10px;
-} */
+
 
 article.tweet {
   display: flex;
   flex-direction: column;
-  /* border: .25em solid #545149; */
-  margin: 2em 0em;
+  margin: 1em .5em;
   border: .20em solid #545149;
 }
 
@@ -21,19 +17,32 @@ article.tweet header {
   flex-direction: row;
   justify-content: space-between;
   height: fit-content;
-  padding: 0.8rem;
+  padding: 0.8em;
+  color: #545149;
+  margin: unset;
+}
+
+article.tweet header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: unset;
 }
 
 article.tweet div {
-  padding: 0rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0em 0.5em;
 }
 
 article.tweet textarea {
+  background: transparent;
+  width: 100%;
+  border: none;
   border-bottom: .20em solid #545149;
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  padding: 0.8rem;
+  resize: none;
+  outline: none;
   align-items: center;
 }
 
@@ -42,11 +51,18 @@ article.tweet footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem;
   font-size: 0.75em;
 } 
 
+article.tweet footer div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .4em;
+}
+
 article.tweet footer i {
+  padding: 0em .2em;
   color: #4152a1;
 }
 
